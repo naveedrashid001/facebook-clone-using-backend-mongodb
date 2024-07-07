@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>friend List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        nav {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #cccccc;
+            background: #fff;
+            position: relative;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .left .logo img {
+            width: 100px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        nav .left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+        }
+
+        nav .left .search_bar {
+            width: 250px;
+            height: 40px;
+            background: #efefef;
+            border-radius: 30px;
+            padding: 0 10px;
+            margin-left: 10px;
+            position: relative;
+            left: 15px;
+        }
+
+        nav .left .search_bar i {
+            line-height: 40px;
+            font-size: 19px;
+            color: #919191;
+            margin-right: 5px;
+        }
+
+        nav .left .search_bar input {
+            background: transparent;
+            outline: none;
+            border: 0;
+            font-size: 16px;
+            width: 200px;
+        }
+
+        nav .center {
+            position: relative;
+            right: 45px;
+        }
+
+        nav .center i {
+            margin: 0 45px 0 45px;
+            font-size: 22px;
+        }
+
+        nav .center i:hover {
+            color: #45abff;
+            cursor: pointer;
+        }
+
+        nav .right {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        nav .right i {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #efefef;
+            line-height: 35px;
+            padding-left: 8px;
+            font-size: 18px;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+
+        nav .right img {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            margin-left: 8px;
+            line-height: 45px;
+            cursor: pointer;
+        }
+
+        /* fetch loof */
+        #row {
+            background-color: white;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .card-wrapper {
+            background-color: white;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+
+        }
+
+        .card {
+            background-color: white;
+            text-align: left;
+            padding: 10px 20px;
+            width: 100%;
+            border-radius: 5px;
+            margin: 10px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #4267B2;
+            /* Facebook blue color */
+            margin: 0 5px;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        .card .info {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <!-- bootstrip -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav>
+
+        <div class="left">
+
+            <div class="logo">
+                <img src="https://logos-world.net/wp-content/uploads/2020/05/Facebook-Logo.png">
+            </div>
+
+            <div class="search_bar">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search FaceBook">
+
+            </div>
+
+        </div>
+
+        <div class="center">
+
+            <i class="fa-solid fa-house"></i>
+           <a href="/api/mainLayout"><i class="fa-solid fa-tv text-black"></i></a>
+            <i class="fa-solid fa-store"></i>
+            <a class="first-a" href="/api/friendList"> <i class="fa-solid fa-users"></i></a>
+
+        </div>
+
+        <div class="right">
+
+            <i class="fa-solid fa-list-ul"></i>
+            <i class="fa-brands fa-facebook-messenger"></i>
+            <i class="fa-solid fa-bell"></i>
+            <i class="fa-solid fa-moon"></i>
+            <a class="first-a" href="/api/profile">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFbDLS32sYjMjyIu6J7GHrHs8JSQpERXUvXA&s">
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- fetch and loop -->
+
+    <div class="container-fluid">
+        <div class="row p-3">
+            <div class="col-sm-4 card-wrapper"></div>
+            <div class="col-sm-4 card-wrapper"></div>
+            <div class="col-sm-4 card-wrapper"></div>
+        </div>
+    </div>
+    <div class="col-sm-4 offset-4" >
+        <p class="text-center text-bold">Result End</p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const cardWrappers = document.querySelectorAll(".card-wrapper"); // Select all card wrappers
+    const loading = document.createElement("h3");
+    loading.textContent = "Loading...";
+    cardWrappers[0].appendChild(loading); // Append loading indicator to the first card wrapper
+
+    const fetchPromise = fetch("https://api.github.com/users", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    fetchPromise.then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    }).then(parsedData => {
+        const promises = [];
+
+        parsedData.forEach((user, index) => {
+            const promise = fetch(user.url, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch user data: ${response.status}`);
+                }
+                return response.json();
+            }).then(userDetail => {
+                const currentIndex = index % cardWrappers.length; // Calculate current index for distributing users evenly
+                const currentCardWrapper = cardWrappers[currentIndex];
+
+                const div = document.createElement("div");
+                div.classList.add("card");
+
+                const img = document.createElement("img");
+                img.src = userDetail.avatar_url;
+                img.alt = userDetail.login;
+
+                const h3 = document.createElement("h3");
+                h3.textContent = userDetail.login;
+
+                const followerAndFollowing = document.createElement("div");
+                followerAndFollowing.classList.add("info");
+                followerAndFollowing.innerHTML = `
+                    <a href="${userDetail.html_url}?tab=followers">Followers: ${userDetail.followers}</a> |
+                    <a href="${userDetail.html_url}?tab=following">Following: ${userDetail.following}</a>
+                `;
+
+                const viewProfileBtn = document.createElement("button");
+                viewProfileBtn.textContent = "View Profile";
+                viewProfileBtn.classList.add("view-profile-btn");
+                viewProfileBtn.style.border = "none";
+                viewProfileBtn.style.borderRadius = "5px";
+                viewProfileBtn.style.padding = "8px 16px";
+                viewProfileBtn.style.marginBottom = "10px";
+                viewProfileBtn.addEventListener("mouseenter", function() {
+                    viewProfileBtn.style.backgroundColor = "#4267B2"; // Facebook blue color
+                    viewProfileBtn.style.color = "#fff"; // White text color
+                });
+                viewProfileBtn.addEventListener("mouseleave", function() {
+                    viewProfileBtn.style.backgroundColor = ""; // Reset background color
+                    viewProfileBtn.style.color = ""; // Reset text color
+                });
+
+                div.appendChild(img);
+                div.appendChild(h3);
+                div.appendChild(followerAndFollowing);
+                div.appendChild(viewProfileBtn);
+
+                currentCardWrapper.appendChild(div);
+            }).catch(error => {
+                console.error('Error fetching user data:', error);
+            });
+
+            promises.push(promise);
+        });
+
+        // Wait for all promises to resolve
+        Promise.all(promises).then(() => {
+            // Remove loading indicator once all data is fetched
+            cardWrappers[0].removeChild(loading);
+        });
+    }).catch(error => {
+        console.error('Error fetching data:', error);
+    });
+});
+
+
+    </script>
+       
+    <!-- bootstrip  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

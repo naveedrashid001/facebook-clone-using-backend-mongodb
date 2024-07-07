@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceBook</title>
+    <!-- <link rel="stylesheet" href="/assets/css/mainLayout.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- body 883 line .................................. -->
+
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+nav{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #cccccc;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .left .logo img{
+    width: 100px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+nav .left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+nav .left .search_bar{
+    width: 250px;
+    height: 40px;
+    background: #efefef;
+    border-radius: 30px;
+    padding: 0 10px;
+    margin-left: 10px;
+    position: relative;
+    left: 15px;
+}
+
+nav .left .search_bar i{
+    line-height: 40px;
+    font-size: 19px;
+    color: #919191;
+    margin-right: 5px;
+}
+
+nav .left .search_bar input{
+    background: transparent;
+    outline: none;
+    border: 0;
+    font-size: 16px;
+    width: 200px;
+}
+
+nav .center{
+    position: relative;
+    right: 45px;
+}
+
+nav .center i{
+    margin: 0 45px 0 45px;
+    font-size: 22px;
+}
+
+nav .center i:hover{
+    color: #45abff;
+    cursor: pointer;
+}
+
+nav .right{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+nav .right i{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #efefef;
+    line-height: 35px;
+    padding-left: 8px;
+    font-size: 18px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+nav .right img{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin-left: 8px;
+    line-height: 45px;
+    cursor: pointer;
+}
+
+
+
+
+
+/*-----------------main---------------*/
+
+.main{
+    display: flex;
+    margin-top: 60px;
+    background: #f5f5f5;
+}
+
+.main .left{
+    width: 25%;
+    height: 92vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    background: #f5f5f5;
+    padding: 20px 6px 5px 10px;
+    position: fixed;
+}
+
+.main .left::-webkit-scrollbar{
+    width: 7px;
+}
+
+.main .left::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background: #f5f5f5;
+}
+
+.main .left:hover::-webkit-scrollbar-thumb{
+    background: #cccccc;
+}
+
+.main .left .img{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.main .left .img:hover{
+    background: #e3e3e3;
+}
+
+.main .left .img img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin: 8px 15px 8px 0;
+}
+
+.main .left hr{
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background: #cccccc;
+    margin: 10px 0;
+}
+
+.main .left h2{
+    font-size: 18px;
+    color: #919191;
+    margin: 5px 0;
+}
+
+.main .left .edit{
+    color: #45abff;
+    font-size: 15px;
+    float: right;
+    position: relative;
+    bottom: 23px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.main .left:hover .edit{
+    opacity: 1;
+}
+
+.main .left .shortcuts{
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.main .left .shortcuts:hover{
+    background: #e3e3e3;
+    cursor: pointer;
+}
+
+.main .left .shortcuts img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    margin: 8px 15px 8px 0;
+}
+
+
+.main .center{
+    width: 50%;
+    height: auto;
+    padding: 20px 20px 0 20px;
+    background: #f5f5f5;
+    margin-left: 25%;
+}
+
+.main .center::-webkit-scrollbar{
+    width: 0;
+}
+
+.main .center .top_box{
+    width: 100%;
+    height: 260px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.main .center .top_box .my_story_card{
+    width: 135px;
+    height: 250px;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.main .center .top_box .my_story_card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.main .center .top_box .my_story_card .story_upload{
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    position: relative;
+    bottom: 50px;
+    cursor: pointer;
+}
+
+.main .center .top_box .my_story_card .story_upload img{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    bottom: 15px;
+    border-radius: 50%;
+}
+
+.main .center .top_box .my_story_card .story_upload .story_tag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.main .center .top_box .story_card{
+    width: 135px;
+    height: 250px;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.main .center .top_box .story_card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.main .center .top_box .story_card .story_profile{
+    position: relative;
+    bottom: 240px;
+    margin-left: 10px;
+}
+
+.main .center .top_box .story_card .story_profile img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 4px solid #45abff;
+}
+
+.main .center .top_box .story_card .story_profile .cricle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #27cc37;
+    border: 2px solid #fff;
+    position: relative;
+    bottom: 15px;
+    left: 25px;
+}
+
+.main .center .top_box .story_card .story_name{
+    position: relative;
+    bottom: 100px;
+    padding: 0 10px;
+}
+
+.main .center .top_box .story_card .story_name .name{
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+}
+
+.main .center .my_post{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    margin: 10px 0;
+}
+
+.main .center .my_post img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.main .center .my_post .post_top{
+    display: flex;
+    align-items: center;
+}
+
+.main .center .my_post .post_top input{
+    width: 90%;
+    padding: 10px;
+    margin-left: 20px;
+    border: 0;
+    outline: none;
+    background: #efefef;
+    border-radius: 30px;
+    font-size: 17px;
+}
+
+.main .center .my_post .post_top input:hover{
+    background: #e3e3e3;
+    cursor: pointer;
+}
+
+.main .center .my_post hr{
+    width: 100%;
+    height: 1px;
+    background: #cccccc;
+    border: 0;
+    margin: 10px 0;
+}
+
+.main .center .my_post .post_bottom{
+    width: 95%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 5px auto;
+}
+
+.main .center .my_post .post_bottom .post_icon{
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 7px 40px;
+    cursor: pointer;
+}
+
+.main .center .my_post .post_bottom .post_icon:hover{
+    background: #efefef;
+    border-radius: 8px;
+}
+
+.main .center .my_post .post_bottom .post_icon i.red{
+    font-size: 23px;
+    color: red;
+    margin-right: 8px;
+}
+
+.main .center .my_post .post_bottom .post_icon i.green{
+    font-size: 23px;
+    color: #27cc37;
+    margin-right: 8px;
+}
+
+.main .center .my_post .post_bottom .post_icon i.yellow{
+    font-size: 23px;
+    color: #f7b928;
+    margin-right: 8px;
+}
+
+.main .center .room{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    padding: 10px 15px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+}
+
+.main .center .room .room_image{
+    display: flex;
+    align-items: center;
+    border: 1px solid #45abff;
+    padding: 10px;
+    border-radius: 30px;
+    width: 150px;
+    margin-right: 5px;
+}
+
+.main .center .room .room_image:hover{
+    background: #efefef;
+    cursor: pointer;
+}
+
+.main .center .room .room_image img{
+    width: 25px;
+    margin-right: 8px;
+}
+
+.main .center .room .room_image .room_tag{
+    color: #45abff;
+}
+
+.main .center .room .room_profile img{
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    border: 3px solid #45abff;
+}
+
+.main .center .friends_post{
+    margin: 10px 0;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+}
+
+.main .center .friends_post .friend_post_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.main .center .friends_post .friend_post_top .img_and_name{
+    display: flex;
+    align-items: center;
+}
+
+.main .center .friends_post .friend_post_top .img_and_name img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.main .center .friends_post .friend_post_top .img_and_name .friends_name .friends_name{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main .center .friends_post .friend_post_top .img_and_name .friends_name .friends_name:hover{
+    text-decoration: underline;
+}
+
+.main .center .friends_post .friend_post_top .img_and_name .friends_name .time{
+    font-size: 14px;
+    color: #919191;
+    margin: 3px 0;
+}
+
+.main .center .friends_post .friend_post_top .img_and_name .friends_name .time i{
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+.main .center .friends_post .friend_post_top .menu{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.main .center .friends_post .friend_post_top .menu:hover{
+    background: #efefef;
+    cursor: pointer;
+}
+
+.main .center .friends_post .friend_post_top .menu i{
+    line-height: 35px;
+    margin-left: 8px;
+    font-size: 18px;
+}
+
+.main .center .friends_post img{
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+
+.main .center .friends_post .info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.main .center .friends_post .info .emoji_img{
+    display: flex;
+}
+
+.main .center .friends_post .info .emoji_img img{
+    width: 20px;
+    height: 20px;
+}
+
+.main .center .friends_post .info .emoji_img p{
+    margin-left: 10px;
+    font-size: 16px;
+    color: #919191;
+}
+
+.main .center .friends_post .info .comment{
+    display: flex;
+    align-items: center;
+}
+
+.main .center .friends_post .info .comment p{
+    padding: 0 12px;
+    font-size: 15px;
+    color: #919191;
+}
+
+.main .center .friends_post hr{
+    width: 100%;
+    height: 1px;
+    background: #cccccc;
+    border: 0;
+    margin: 10px 0;
+}
+
+.main .center .friends_post .like{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main .center .friends_post .like .like_icon{
+    display: flex;
+    align-items: center;
+}
+
+.main .center .friends_post .like .like_icon i{
+    font-size: 20px;
+    margin-right: 8px;
+    color: #919191;
+}
+
+.main .center .friends_post .like .like_icon i.activi{
+    color: #45abff;
+}
+
+.main .center .friends_post .comment_warpper{
+    display: flex;
+    align-items: center;
+}
+
+.main .center .friends_post .comment_warpper img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 15px;
+}
+
+.main .center .friends_post .comment_warpper .circle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #27cc37;
+    border: 2px solid #fff;
+    position: relative;
+    top: 15px;
+    right: 25px;
+}
+
+.main .center .friends_post .comment_warpper .comment_search{
+    width: 95%;
+    padding: 5px 15px;
+    background: #efefef;
+    border-radius: 30px;
+}
+
+.main .center .friends_post .comment_warpper .comment_search input{
+    width: 85%;
+    height: 30px;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.main .center .friends_post .comment_warpper .comment_search i{
+    padding: 0 5px;
+    color: #919191;
+}
+
+.main .center .loard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 50px 0;
+}
+
+.main .center .loard button{
+    background: none;
+    padding: 5px 20px;
+    border: 1px solid #919191;
+    color: #919191;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.main .center .end{
+    font-size: 15px;
+    text-align: center;
+    color: #919191;
+    margin: 10px 0;
+}
+
+.main .center .end span{
+    margin-left: 8px;
+    color: #45abff;
+}
+
+.main .center .end span i{
+    margin-right: 8px;
+}
+
+
+
+
+/*-----------------right------------------*/
+
+.main .right{
+    width: 25%;
+    height: 92vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    background: #f5f5f5;
+    padding: 20px 10px 5px 6px;
+    position: fixed;
+    right: 0;
+}
+
+.main .right::-webkit-scrollbar{
+    width: 7px;
+}
+
+.main .right::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background: #f5f5f5;
+}
+
+.main .right:hover::-webkit-scrollbar-thumb{
+    background: #cccccc;
+}
+
+.main .right .first_warpper .page{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main .right .first_warpper .page h2{
+    font-size: 18px;
+    color: #919191;
+    margin: 5px 0;
+}
+
+.main .right .first_warpper .page .menu{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.main .right .first_warpper .page .menu:hover{
+    background: #efefef;
+    cursor: pointer;
+}
+
+.main .right .first_warpper .page .menu i{
+    line-height: 35px;
+    margin-left: 8px;
+    font-size: 18px;
+}
+
+.main .right .first_warpper .page_img{
+    display: flex;
+    align-items: center;
+}
+
+.main .right .first_warpper .page_img img{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin: 8px 15px 8px 0;
+    cursor: pointer;
+}
+
+.main .right .first_warpper .page_icon{
+    display: flex;
+    align-items: center;
+}
+
+.main .right .first_warpper .page_icon i{
+    color: #919191;
+    font-size: 20px;
+    margin: 8px 15px 8px 0;
+}
+
+.main .right hr{
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background: #cccccc;
+    margin: 10px auto;
+}
+
+.main .right .second_warpper h2{
+    font-size: 18px;
+    color: #919191;
+    margin: 5px 0;
+}
+
+.main .right .second_warpper .img_and_tag{
+    display: flex;
+    align-items: center;
+}
+
+.main .right .second_warpper .img_and_tag img{
+    width: 40px;
+    margin: 8px 15px 8px 0;
+}
+
+.main .right .second_warpper .img_and_tag p{
+    line-height: 22px;
+}
+
+.main .right .second_warpper .img_and_tag p span{
+    font-weight: bold;
+}
+
+.main .right .third_warpper .contact_tag{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main .right .third_warpper .contact_tag h2{
+    font-size: 18px;
+    color: #919191;
+    margin: 5px 0;
+}
+
+.main .right .third_warpper .contact_tag .contact_icon i{
+    margin: 0 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    line-height: 35px;
+    padding-left: 10px;
+}
+
+.main .right .third_warpper .contact_tag .contact_icon i:hover{
+    background: #efefef;
+    cursor: pointer;
+}
+
+.main .right .third_warpper .contact{
+    display: flex;
+    align-items: center;
+}
+
+.main .right .third_warpper .contact img{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin: 8px 15px 8px 0;
+    border: 3px solid #45abff;
+    cursor: pointer;
+}
+.first-a{
+    text-decoration: none;
+    color: black;
+}
+    </style>
+
+    <!--  body .................................................................................. -->
+</head>
+<body>
+
+    <nav>
+
+        <div class="left">
+            
+            <div class="logo">
+                <img src="https://logos-world.net/wp-content/uploads/2020/05/Facebook-Logo.png" >
+            </div>
+
+            <div class="search_bar">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search FaceBook">
+
+            </div>
+
+        </div>
+
+        <div class="center">
+
+            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-tv"></i>
+            <i class="fa-solid fa-store"></i>
+            <i class="fa-solid fa-users"></i>
+
+        </div>
+
+        <div class="right">
+
+            <i class="fa-solid fa-list-ul"></i>
+            <i class="fa-brands fa-facebook-messenger"></i>
+            <i class="fa-solid fa-bell"></i>
+            <i class="fa-solid fa-moon"></i>
+            <a class="first-a" href="/api/profile">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFbDLS32sYjMjyIu6J7GHrHs8JSQpERXUvXA&s">
+        </a>
+
+        </div>
+
+    </nav>
+
+
+
+
+    <!------------main--------------->
+
+    <div class="main">
+
+        <!------------------left------------------->
+
+        <div class="left">
+
+            <a class="first-a" href="/api/profile">
+                <div class="img" >
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFbDLS32sYjMjyIu6J7GHrHs8JSQpERXUvXA&s">
+                    <p id="tabayeda"><%= user.firstName %> <%= user.lastName %></p>
+                </div>
+            </a>
+
+            <div class="img">
+                <img src="https://cdn-icons-png.flaticon.com/512/8345/8345290.png">
+                <p>Friends</p>
+            </div>
+
+            <div class="img">
+                <img src="https://cdn-icons-png.flaticon.com/128/4479/4479985.png">
+                <p>Saved</p>
+            </div>
+
+            <div class="img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAJ2VEH1nKz0wTqyGNtJfwDLiPFYCUrK1ATw&s">
+                <p>Groups</p>
+            </div>
+
+            <div class="img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM1oIPp3Ux43lSbmv6cPq9pEAOrx329JQvpg&s">
+                <p>Marketplace</p>
+            </div>
+
+            <div class="img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiRRTSixpsWUFcDF8MFoNgPN1IppN-eTiBxA&s">
+                <p>Watch</p>
+            </div>
+
+            <div class="img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXaNHv6XO9ZdLMaklwmgoEd5h5lXP4Po3hxT9Gb4kSKFBw_t1rtuCQzbeOPsmIl2MSjCg&usqp=CAU">
+                <p>See more</p>
+            </div>
+
+            <hr>
+
+            <h2>You shortcuts</h2>
+            <p class="edit">Edit</p>
+
+            <div class="shortcuts">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ24nw4QfTGwnXnuzYUMGRbrXxIh9TY_2t3Q&s">
+                <p>MOBILE GAMES</p>
+            </div>
+
+            <div class="shortcuts">
+                <img src="https://vibe.us/blog/10-positive-aspects-to-distance-learning/cover_hu3d03a01dcc18bc5be0e67db3d8d209a6_184197_640x0_resize_q90_lanczos.ea326e175ea41a8a8013658ca8ec88b43ed1a14e0e9902f5ab052f97182095a2.jpg">
+                <p>Online Education</p>
+            </div>
+
+            <div class="shortcuts">
+                <img src="https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D">
+                <p>Food Lovers</p>
+            </div>
+
+            <div class="shortcuts">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFebfxnYCvXpls9k8SQWwEESalQBslZnvHRw&s">
+                <p>Social Media Academy</p>
+            </div>
+
+            <div class="shortcuts">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPdNIGq-BaUinU-stPdqcswwuvAN1xS5LjBw&s">
+                <p>PC Shop</p>
+            </div>
+
+            <a class="first-a" href="/api/logout">
+                <div class="shortcuts">
+                    <img src="https://previews.123rf.com/images/faysalfarhan/faysalfarhan1206/faysalfarhan120600026/14516146-logout-text-icon-on-glossy-red-round-button.jpg">
+                    <p>Log Out</p>
+                </div>
+            </a>
+
+        </div>
+
+        <!------------center---------------------->
+
+        <div class="center">
+
+            <div class="top_box">
+
+                <div class="my_story_card">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFbDLS32sYjMjyIu6J7GHrHs8JSQpERXUvXA&s">
+
+                    <div class="story_upload">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHebNFTtT0yvGeA7Eg0g93DOaZSBH_C73nIgBJL1DUl2FaBfsmERuW8vkhuNQI-pP4rK0&usqp=CAU">
+                        <p class="story_tag">Create story</p>
+                    </div>
+
+                </div>
+
+                <div class="story_card">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUrvE85eW9nMQbakX11jPL2XybGmNTIlhnKw&s">
+
+                    <div class="story_profile">
+
+                        <img src="https://i.pinimg.com/736x/66/03/58/660358db389c0e793bd234d928b909c4.jpg">
+                        <div class="cricle"></div>
+                        
+                    </div>
+
+                    <div class="story_name">
+                        <p class="name">Engr Awais saleem </p>
+                    </div>
+
+                </div>
+
+                <div class="story_card">
+
+                    <img src="https://121clicks.com/wp-content/uploads/2022/01/most_beautiful_places_nature_01.jpg">
+
+                    <div class="story_profile">
+
+                        <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80N18zZF9jYXJ0b29uX2lsbHVzdHJhdGlvbl9vZl9hX2JveV9yZWFkX2FfYm9va18wMTU5NTVkNy03ODEzLTRmNDUtYjU0YS01ZGNlMWYyOWVkNTFfMS5qcGc.jpg">
+                        <div class="cricle"></div>
+                        
+                    </div>
+
+                    <div class="story_name">
+                        <p class="name">Engr Abid Jan </p>
+                    </div>
+
+                </div>
+
+                <div class="story_card">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvTKXZBoynw-g6uXrD5rMDeFUu62Mz9C6vlM7bU6Q0ibgr92IbZHTCoFaJnW26QmmieWI&usqp=CAU">
+
+                    <div class="story_profile">
+
+                        <img src="https://i.pinimg.com/236x/66/78/93/66789350829a593ce2062520e2a0e1c7.jpg">
+                        <div class="cricle"></div>
+                        
+                    </div>
+
+                    <div class="story_name">
+                        <p class="name">Engineer</p>
+                    </div>
+
+                </div>
+
+                <div class="story_card">
+
+                    <img src="https://i.pinimg.com/236x/59/d5/a6/59d5a69ec9fe7e125283fe4681293ba3.jpg">
+
+                    <div class="story_profile">
+
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp5jPHOZSgOflYDaTn6YgCX2NnTYDFlDhZIvCLxNwQKw-9wFKpkBRgXzsUMRi3vnTOGaw&usqp=CAU">
+                        <div class="cricle"></div>
+                        
+                    </div>
+
+                    <div class="story_name">
+                        <p class="name">Engr Ali </p>
+                    </div>
+
+                </div>
+
+                
+
+            </div>
+
+
+            <div class="my_post">
+
+                <div class="post_top">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFbDLS32sYjMjyIu6J7GHrHs8JSQpERXUvXA&s">
+                    <input type="text" placeholder="What's on you mind?">
+
+                </div>
+
+                <hr>
+
+                <div class="post_bottom">
+
+                    <div class="post_icon">
+                        <i class="fa-solid fa-video red"></i>
+                        <p>Live video</p>
+                    </div>
+
+                    <div class="post_icon">
+                        <i class="fa-solid fa-images green"></i>
+                        <p>Photo/video</p>
+                    </div>
+
+                    <div class="post_icon">
+                        <i class="fa-regular fa-face-grin yellow"></i>
+                        <p>Feeling/activity</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="room">
+                
+                <div class="room_image">
+
+                    <i class="fa-solid fa-video red"></i>
+                    <p class="room_tag">Create room</p>
+
+                </div>
+
+                <div class="room_profile">
+
+                    <img src="https://i.pinimg.com/736x/66/03/58/660358db389c0e793bd234d928b909c4.jpg" alt="Photo" />
+            <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80N18zZF9jYXJ0b29uX2lsbHVzdHJhdGlvbl9vZl9hX2JveV9yZWFkX2FfYm9va18wMTU5NTVkNy03ODEzLTRmNDUtYjU0YS01ZGNlMWYyOWVkNTFfMS5qcGc.jpg" alt="Photo" />
+            <img src="https://i.pinimg.com/236x/66/78/93/66789350829a593ce2062520e2a0e1c7.jpg" alt="Photo" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp5jPHOZSgOflYDaTn6YgCX2NnTYDFlDhZIvCLxNwQKw-9wFKpkBRgXzsUMRi3vnTOGaw&usqp=CAU" alt="Photo" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ2st_DIUoFPcW4zTEQt7Fzhn8D65BmFZgw6iXzgMiIgLznXHgOKCbtovTqdUwLmgrtiQ&usqp=CAU" alt="Photo" />
+            <img src="https://lumenor.ai/cdn-cgi/imagedelivery/F5KOmplEz0rStV2qDKhYag/35ce6d1a-63a1-4d8b-02fc-e01bc4692200/source" alt="Photo" />
+                    <!-- <img src="image/profile_7.png">
+                    <img src="image/profile_8.png"> -->
+
+                </div>
+
+            </div>
+
+
+            <div class="friends_post">
+
+                <div class="friend_post_top">
+
+                    <div class="img_and_name">
+
+                        <img src="https://lumenor.ai/cdn-cgi/imagedelivery/F5KOmplEz0rStV2qDKhYag/35ce6d1a-63a1-4d8b-02fc-e01bc4692200/source">
+
+                        <div class="friends_name">
+                            <p class="friends_name">
+                                Engr Awais Saleem
+                            </p>
+                            <p class="time">16h.<i class="fa-solid fa-user-group"></i></p>
+                        </div>
+                        
+
+                    </div>
+
+                    <div class="menu">
+
+                        <i class="fa-solid fa-ellipsis"></i>
+
+                    </div>
+
+                </div>
+
+                <img src="https://pakrism.pk/wp-content/uploads/2023/08/3.jpeg">
+
+                <div class="info">
+
+                    <div class="emoji_img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIpUwbnyERQTHiOj0cFLGaiP5qH_dnjJIaw&s">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZM_IwmMzYT8Rm8nN_yNzFUHuNbuY4kl8sjQ&s">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQniUbracvgvv_fk_x4fCufUGAte1GkiVfEpQ&s">
+                        
+                        <p>You, Engr Jalal Shah and 25K others</p>
+                    </div>
+
+                    <div class="comment">
+                        <p>421 Comments</p>
+                        <p>1.3K Shares</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="like">
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-thumbs-up activi"></i>
+                        <p>Like</p>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-message"></i>
+                        <p>Comments</p>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-share"></i>
+                        <p>Share</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="comment_warpper">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFbDLS32sYjMjyIu6J7GHrHs8JSQpERXUvXA&s">
+                    <div class="circle"></div>
+
+                    <div class="comment_search">
+
+                        <input type="text" placeholder="Write a comment">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <i class="fa-solid fa-camera"></i>
+                        <i class="fa-regular fa-note-sticky"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="friends_post">
+
+                <div class="friend_post_top">
+
+                    <div class="img_and_name">
+
+                        <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80N18zZF9jYXJ0b29uX2lsbHVzdHJhdGlvbl9vZl9hX2JveV9yZWFkX2FfYm9va18wMTU5NTVkNy03ODEzLTRmNDUtYjU0YS01ZGNlMWYyOWVkNTFfMS5qcGc.jpg">
+
+                        <div class="friends_name">
+                            <p class="friends_name">
+                                Engr M Qasim 
+                            </p>
+                            <p class="time">16h.<i class="fa-solid fa-user-group"></i></p>
+                        </div>
+                        
+
+                    </div>
+
+                    <div class="menu">
+
+                        <i class="fa-solid fa-ellipsis"></i>
+
+                    </div>
+
+                </div>
+
+                <img src="https://www.jsonline.com/gcdn/presto/2018/09/05/PMJS/edcd53f1-640e-4eaf-946f-9ef1d751cb3d-KILLERS_05547.JPG?crop=4199,2346,x0,y0&width=660&height=372&format=pjpg&auto=webp">
+
+                <div class="info">
+
+                    <div class="emoji_img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIpUwbnyERQTHiOj0cFLGaiP5qH_dnjJIaw&s">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZM_IwmMzYT8Rm8nN_yNzFUHuNbuY4kl8sjQ&s">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQniUbracvgvv_fk_x4fCufUGAte1GkiVfEpQ&s">
+                        <p>You, Engr Awais Saleem and 25K others</p>
+                    </div>
+
+                    <div class="comment">
+                        <p>421 Comments</p>
+                        <p>1.3K Shares</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="like">
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-thumbs-up activi"></i>
+                        <p>Like</p>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-message"></i>
+                        <p>Comments</p>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-share"></i>
+                        <p>Share</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="comment_warpper">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFbDLS32sYjMjyIu6J7GHrHs8JSQpERXUvXA&s">
+                    <div class="circle"></div>
+
+                    <div class="comment_search">
+
+                        <input type="text" placeholder="Write a comment">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <i class="fa-solid fa-camera"></i>
+                        <i class="fa-regular fa-note-sticky"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="friends_post">
+
+                <div class="friend_post_top">
+
+                    <div class="img_and_name">
+
+                        <img src="https://i.pinimg.com/236x/66/78/93/66789350829a593ce2062520e2a0e1c7.jpg">
+
+                        <div class="friends_name">
+                            <p class="friends_name">
+                                Engr Jalal Shah
+                            </p>
+                            <p class="time">16h.<i class="fa-solid fa-user-group"></i></p>
+                        </div>
+                        
+
+                    </div>
+
+                    <div class="menu">
+
+                        <i class="fa-solid fa-ellipsis"></i>
+
+                    </div>
+
+                </div>
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Kalam%2C_Swat_%28Pakistan%29.jpg/1200px-Kalam%2C_Swat_%28Pakistan%29.jpg">
+
+                <div class="info">
+
+                    <div class="emoji_img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIpUwbnyERQTHiOj0cFLGaiP5qH_dnjJIaw&s">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZM_IwmMzYT8Rm8nN_yNzFUHuNbuY4kl8sjQ&s">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQniUbracvgvv_fk_x4fCufUGAte1GkiVfEpQ&s">
+                        <p>You, Engr Subhan and 25K others</p>
+                    </div>
+
+                    <div class="comment">
+                        <p>421 Comments</p>
+                        <p>1.3K Shares</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="like">
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-thumbs-up activi"></i>
+                        <p>Like</p>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-message"></i>
+                        <p>Comments</p>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-share"></i>
+                        <p>Share</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="comment_warpper">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFbDLS32sYjMjyIu6J7GHrHs8JSQpERXUvXA&s">
+                    <div class="circle"></div>
+
+                    <div class="comment_search">
+
+                        <input type="text" placeholder="Write a comment">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <i class="fa-solid fa-camera"></i>
+                        <i class="fa-regular fa-note-sticky"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="friends_post">
+
+                <div class="friend_post_top">
+
+                    <div class="img_and_name">
+
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp5jPHOZSgOflYDaTn6YgCX2NnTYDFlDhZIvCLxNwQKw-9wFKpkBRgXzsUMRi3vnTOGaw&usqp=CAU">
+
+                        <div class="friends_name">
+                            <p class="friends_name">
+                                Engr Awais Saleem
+                            </p>
+                            <p class="time">16h.<i class="fa-solid fa-user-group"></i></p>
+                        </div>
+                        
+
+                    </div>
+
+                    <div class="menu">
+
+                        <i class="fa-solid fa-ellipsis"></i>
+
+                    </div>
+
+                </div>
+
+                <img src="https://thumbs.dreamstime.com/b/moscow-city-russia-international-business-center-sunset-136063196.jpg">
+
+                <div class="info">
+
+                    <div class="emoji_img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIpUwbnyERQTHiOj0cFLGaiP5qH_dnjJIaw&s">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZM_IwmMzYT8Rm8nN_yNzFUHuNbuY4kl8sjQ&s">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQniUbracvgvv_fk_x4fCufUGAte1GkiVfEpQ&s">
+                        <p>You, Engr Abid Jan and 25K others</p>
+                    </div>
+
+                    <div class="comment">
+                        <p>421 Comments</p>
+                        <p>1.3K Shares</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="like">
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-thumbs-up activi"></i>
+                        <p>Like</p>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-message"></i>
+                        <p>Comments</p>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-share"></i>
+                        <p>Share</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="comment_warpper">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFbDLS32sYjMjyIu6J7GHrHs8JSQpERXUvXA&s">
+                    <div class="circle"></div>
+
+                    <div class="comment_search">
+
+                        <input type="text" placeholder="Write a comment">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <i class="fa-solid fa-camera"></i>
+                        <i class="fa-regular fa-note-sticky"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="friends_post">
+
+                <div class="friend_post_top">
+
+                    <div class="img_and_name">
+
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFbDLS32sYjMjyIu6J7GHrHs8JSQpERXUvXA&s">
+
+                        <div class="friends_name">
+                            <p class="friends_name">
+                                You
+                            </p>
+                            <p class="time">16h.<i class="fa-solid fa-user-group"></i></p>
+                        </div>
+                        
+
+                    </div>
+
+                    <div class="menu">
+
+                        <i class="fa-solid fa-ellipsis"></i>
+
+                    </div>
+
+                </div>
+
+                <img src="https://www.travelcroc.com/wp-content/uploads/2016/05/15-Niagra-Falls-Photo-2-Canada-United-States.jpg">
+
+                <div class="info">
+
+                    <div class="emoji_img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIpUwbnyERQTHiOj0cFLGaiP5qH_dnjJIaw&s">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZM_IwmMzYT8Rm8nN_yNzFUHuNbuY4kl8sjQ&s">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQniUbracvgvv_fk_x4fCufUGAte1GkiVfEpQ&s">
+                        <p>You, Engr Awais Saleem and 25K others</p>
+                    </div>
+
+                    <div class="comment">
+                        <p>421 Comments</p>
+                        <p>1.3K Shares</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="like">
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-thumbs-up activi"></i>
+                        <p>Like</p>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-message"></i>
+                        <p>Comments</p>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-share"></i>
+                        <p>Share</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="comment_warpper">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFbDLS32sYjMjyIu6J7GHrHs8JSQpERXUvXA&s">
+                    <div class="circle"></div>
+
+                    <div class="comment_search">
+
+                        <input type="text" placeholder="Write a comment">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <i class="fa-solid fa-camera"></i>
+                        <i class="fa-regular fa-note-sticky"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="loard">
+                <button>Loard More</button>
+            </div>
+
+            <p class="end">Design By<span><i class="fa-regular fa-face-grin"></i>
+            Engr Naveed Rashid</span></p>
+
+
+        </div>
+
+        <!------------------right------------------>
+
+        <div class="right">
+            
+            <div class="first_warpper">
+
+                <div class="page">
+
+                    <h2>Your Pages and profiles</h2>
+                    <div class="menu">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                </div>
+
+                <div class="page_img">
+                    <img src="https://i.pinimg.com/1200x/0d/b5/da/0db5da143c7bf4ace9d3635bd4e35fcc.jpg">
+                    <p>Web Designer</p>
+                </div>
+
+                <div class="page_icon">
+                    <i class="fa-regular fa-bell"></i>
+                    <p>20 Notifications</p>
+                </div>
+
+                <div class="page_icon">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <p>Create promotion</p>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="second_warpper">
+
+                <h2>Birthdays</h2>
+
+                <div class="img_and_tag">
+
+                    <img src="https://w7.pngwing.com/pngs/183/934/png-transparent-gift-giphy-facebook-messenger-icon-gift-box-miscellaneous-blue-ink.png">
+                    <p><span>Engr Awais Saleem </span>and<span> 2 others </span>have birthdays today</p>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+
+            <div class="third_warpper">
+
+                <div class="contact_tag">
+
+                    <h2>Contacts</h2>
+
+                    <div class="contact_icon">
+
+                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+
+                    </div>
+
+                </div>
+
+                <div class="contact">
+
+                    <img src="https://i.pinimg.com/736x/66/03/58/660358db389c0e793bd234d928b909c4.jpg">
+                    <p>Engr Awais Saleem</p>
+
+                </div>
+
+                <div class="contact">
+
+                    <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80N18zZF9jYXJ0b29uX2lsbHVzdHJhdGlvbl9vZl9hX2JveV9yZWFkX2FfYm9va18wMTU5NTVkNy03ODEzLTRmNDUtYjU0YS01ZGNlMWYyOWVkNTFfMS5qcGc.jpg">
+                    <p>Engr M Qasim</p>
+
+                </div>
+
+                <div class="contact">
+
+                    <img src="https://i.pinimg.com/236x/66/78/93/66789350829a593ce2062520e2a0e1c7.jpg">
+                    <p>Engr Jalal Shah</p>
+
+                </div>
+
+                <div class="contact">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp5jPHOZSgOflYDaTn6YgCX2NnTYDFlDhZIvCLxNwQKw-9wFKpkBRgXzsUMRi3vnTOGaw&usqp=CAU">
+                    <p>Engr Abid Jan</p>
+
+                </div>
+
+                <div class="contact">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ2st_DIUoFPcW4zTEQt7Fzhn8D65BmFZgw6iXzgMiIgLznXHgOKCbtovTqdUwLmgrtiQ&usqp=CAU">
+                    <p>Engr Subhan Ghani</p>
+
+                </div>
+
+                <div class="contact">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ2st_DIUoFPcW4zTEQt7Fzhn8D65BmFZgw6iXzgMiIgLznXHgOKCbtovTqdUwLmgrtiQ&usqp=CAU">
+                    <p>Engr M Ali</p>
+
+                </div>
+
+                
+                <div class="contact">
+
+                    <img src="https://i.pinimg.com/736x/66/03/58/660358db389c0e793bd234d928b909c4.jpg">
+                    <p>Engr Awais Saleem</p>
+
+                </div>
+
+                <div class="contact">
+
+                    <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80N18zZF9jYXJ0b29uX2lsbHVzdHJhdGlvbl9vZl9hX2JveV9yZWFkX2FfYm9va18wMTU5NTVkNy03ODEzLTRmNDUtYjU0YS01ZGNlMWYyOWVkNTFfMS5qcGc.jpg">
+                    <p>Engr M Qasim</p>
+
+                </div>
+
+                <div class="contact">
+
+                    <img src="https://i.pinimg.com/236x/66/78/93/66789350829a593ce2062520e2a0e1c7.jpg">
+                    <p>Engr Jalal Shah</p>
+
+                </div>
+
+                
+                <div class="contact">
+
+                    <img src="https://i.pinimg.com/236x/66/78/93/66789350829a593ce2062520e2a0e1c7.jpg">
+                    <p>Engr Jalal Shah</p>
+
+                </div>
+
+                <div class="contact">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp5jPHOZSgOflYDaTn6YgCX2NnTYDFlDhZIvCLxNwQKw-9wFKpkBRgXzsUMRi3vnTOGaw&usqp=CAU">
+                    <p>Engr Abid Jan</p>
+
+                </div>
+
+                <div class="contact">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ2st_DIUoFPcW4zTEQt7Fzhn8D65BmFZgw6iXzgMiIgLznXHgOKCbtovTqdUwLmgrtiQ&usqp=CAU">
+                    <p>Engr Subhan Ghani</p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    
+</body>
+</html>
